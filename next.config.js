@@ -27,7 +27,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "secretgreen9.s3.ap-southeast-2.amazonaws.com",
+        hostname: "nutricity9.s3.ap-southeast-2.amazonaws.com",
       },
       {
         protocol: "https",
