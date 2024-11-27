@@ -23,7 +23,15 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "medusa-server-testing.s3.us-east-1.amazonaws.com",
+        hostname: "medusa-server-testing.s3.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "secretgreen9.s3.ap-southeast-2.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "s3.ap-southeast-2.amazonaws.com",
       },
     ],
   },
