@@ -6,10 +6,11 @@ import { getCollectionsWithProducts } from "@lib/data/collections"
 import { getRegion } from "@lib/data/regions"
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: process.env.NEXT_PUBLIC_TITLE || "Default Title",
   description:
-    "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
-}
+    process.env.NEXT_PUBLIC_DESCRIPTION ||
+    "Default description for the ecommerce site.",
+};
 
 export default async function Home({
   params: { countryCode },
