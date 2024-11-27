@@ -15,13 +15,13 @@ const Hero = () => {
             level="h1"
             className="text-3xl leading-10 text-ui-fg-base font-normal"
           >
-            Unique Products, Exceptional Quality & Timely Delivery
+            
           </Heading>
           <Heading
             level="h3"
             className="text-3xl leading-10 text-ui-fg-subtle font-normal"
           >
-            Free Shipping | 30 Days Return | Secure payments
+            
           </Heading>
         </span>
         <a href="/store" target="_blank">
