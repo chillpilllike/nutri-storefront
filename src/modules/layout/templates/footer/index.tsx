@@ -148,35 +148,55 @@ export default async function Footer() {
               <span className="txt-small-plus txt-ui-fg-base">Medusa</span>
               <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
                 <li>
-                  <a
-                    href="https://github.com/medusajs"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    GitHub
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://docs.medusajs.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Documentation
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/medusajs/nextjs-starter-medusa"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="hover:text-ui-fg-base"
-                  >
-                    Source code
-                  </a>
-                </li>
+                    <a
+                      href="/content/privacy-policy"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-ui-fg-base"
+                    >
+                      Privacy policy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/content/terms-conditions"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-ui-fg-base"
+                    >
+                      Terms & Conditions
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/content/refund-policy"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-ui-fg-base"
+                    >
+                      Refund Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/content/shipping-policy"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-ui-fg-base"
+                    >
+                      Shipping Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/content/contact-us"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-ui-fg-base"
+                    >
+                      Contact us
+                    </a>
+                    </li>
               </ul>
             </div>
           </div>
