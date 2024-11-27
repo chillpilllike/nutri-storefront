@@ -139,15 +139,56 @@ export default async function Footer() {
               <div className="flex flex-col gap-y-2">
                 <span className="txt-small-plus txt-ui-fg-base">Useful Info</span>
                 <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
-                  <li>
+                          <li>
                     <a
-                      href="/privacy-policy"
+                      href="/content/privacy-policy"
+                      target="_blank"
+                      rel="noreferrer"
                       className="hover:text-ui-fg-base"
                     >
-                      Privacy Policy
+                      Privacy policy
                     </a>
                   </li>
-                  {/* Add more links as needed */}
+                  <li>
+                    <a
+                      href="/content/terms-conditions"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-ui-fg-base"
+                    >
+                      Terms & Conditions
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/content/refund-policy"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-ui-fg-base"
+                    >
+                      Refund Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/content/shipping-policy"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-ui-fg-base"
+                    >
+                      Shipping Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/content/contact-us"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="hover:text-ui-fg-base"
+                    >
+                      Contact us
+                    </a>
+                    </li>
                 </ul>
               </div>
             </div>
