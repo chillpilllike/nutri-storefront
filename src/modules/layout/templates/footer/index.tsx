@@ -14,6 +14,37 @@ export default async function Footer() {
   return (
     <footer className="border-t border-ui-border-base w-full">
       <div className="content-container flex flex-col w-full">
+
+        {/* Insert the Trustpilot Widget at the top */}
+        <div
+          className="trustpilot-widget"
+          data-locale="en-US"
+          data-template-id="5419b6a8b0d04a076446a9ad"
+          data-businessunit-id="641a0120bd3a43fcfbfecb58"
+          data-style-height="100%"
+          data-style-width="100%"
+          data-stars="1,2,3,4,5"
+          data-scroll-to-list="false"
+          data-allow-robots="true"
+        >
+          <a
+            href="https://www.trustpilot.com/review/nutricity.com.au"
+            target="_blank"
+            rel="noopener"
+          >
+            Trustpilot
+          </a>
+        </div>
+
+        {/* Insert the External Trustpilot Script */}
+        <Script
+          src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+          type="text/javascript"
+          async
+          strategy="afterInteractive"
+        />
+
+        {/* Rest of the footer content */}
         <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
           <div>
             <LocalizedClientLink
@@ -24,7 +55,7 @@ export default async function Footer() {
             </LocalizedClientLink>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
-            {product_categories && product_categories?.length > 0 && (
+            {product_categories && product_categories.length > 0 && (
               <div className="flex flex-col gap-y-2">
                 <span className="txt-small-plus txt-ui-fg-base">
                   Categories
@@ -33,7 +64,7 @@ export default async function Footer() {
                   className="grid grid-cols-1 gap-2"
                   data-testid="footer-categories"
                 >
-                  {product_categories?.slice(0, 6).map((c) => {
+                  {product_categories.slice(0, 6).map((c) => {
                     if (c.parent_category) {
                       return null;
                     }
@@ -150,35 +181,6 @@ export default async function Footer() {
           </Text>
           <MedusaCTA />
         </div>
-
-        {/* Insert the Trustpilot Widget */}
-        <div
-          className="trustpilot-widget"
-          data-locale="en-US"
-          data-template-id="5419b6a8b0d04a076446a9ad"
-          data-businessunit-id="641a0120bd3a43fcfbfecb58"
-          data-style-height="100%"
-          data-style-width="100%"
-          data-stars="1,2,3,4,5"
-          data-scroll-to-list="false"
-          data-allow-robots="true"
-        >
-          <a
-            href="https://www.trustpilot.com/review/nutricity.com.au"
-            target="_blank"
-            rel="noopener"
-          >
-            Trustpilot
-          </a>
-        </div>
-
-        {/* Insert the External Trustpilot Script */}
-        <Script
-          src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
-          type="text/javascript"
-          async
-          strategy="afterInteractive"
-        />
 
         {/* Existing scripts */}
         <Script
