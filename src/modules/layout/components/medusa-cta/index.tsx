@@ -1,4 +1,5 @@
-import { Text } from "@medusajs/ui"
+import { Text, IconBadge } from "@medusajs/ui"
+import { Stripe, Mastercard, Visa, Klarna, VerifiedBadge } from "@medusajs/icons"
 
 import Medusa from "../../../common/icons/medusa"
 import NextJs from "../../../common/icons/nextjs"
