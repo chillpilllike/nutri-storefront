@@ -1,13 +1,15 @@
-import { getCategoriesList } from "@lib/data/categories"
-import { getCollectionsList } from "@lib/data/collections"
-import { Text, clx } from "@medusajs/ui"
+import { getCategoriesList } from "@lib/data/categories";
+import { getCollectionsList } from "@lib/data/collections";
+import { Text, clx } from "@medusajs/ui";
 
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import MedusaCTA from "@modules/layout/components/medusa-cta"
+import LocalizedClientLink from "@modules/common/components/localized-client-link";
+import MedusaCTA from "@modules/layout/components/medusa-cta";
+
+import Script from 'next/script';
 
 export default async function Footer() {
-  const { collections } = await getCollectionsList(0, 6)
-  const { product_categories } = await getCategoriesList(0, 6)
+  const { collections } = await getCollectionsList(0, 6);
+  const { product_categories } = await getCategoriesList(0, 6);
 
   return (
     <footer className="border-t border-ui-border-base w-full">
@@ -33,7 +35,7 @@ export default async function Footer() {
                 >
                   {product_categories?.slice(0, 6).map((c) => {
                     if (c.parent_category) {
-                      return
+                      return null;
                     }
 
                     const children =
@@ -41,7 +43,7 @@ export default async function Footer() {
                         name: child.name,
                         handle: child.handle,
                         id: child.id,
-                      })) || null
+                      })) || null;
 
                     return (
                       <li
@@ -60,22 +62,21 @@ export default async function Footer() {
                         </LocalizedClientLink>
                         {children && (
                           <ul className="grid grid-cols-1 ml-3 gap-2">
-                            {children &&
-                              children.map((child) => (
-                                <li key={child.id}>
-                                  <LocalizedClientLink
-                                    className="hover:text-ui-fg-base"
-                                    href={`/categories/${child.handle}`}
-                                    data-testid="category-link"
-                                  >
-                                    {child.name}
-                                  </LocalizedClientLink>
-                                </li>
-                              ))}
+                            {children.map((child) => (
+                              <li key={child.id}>
+                                <LocalizedClientLink
+                                  className="hover:text-ui-fg-base"
+                                  href={`/categories/${child.handle}`}
+                                  data-testid="category-link"
+                                >
+                                  {child.name}
+                                </LocalizedClientLink>
+                              </li>
+                            ))}
                           </ul>
                         )}
                       </li>
-                    )
+                    );
                   })}
                 </ul>
               </div>
@@ -89,11 +90,11 @@ export default async function Footer() {
                   className={clx(
                     "grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small",
                     {
-                      "grid-cols-2": (collections?.length || 0) > 3,
+                      "grid-cols-2": collections.length > 3,
                     }
                   )}
                 >
-                  {collections?.slice(0, 6).map((c) => (
+                  {collections.slice(0, 6).map((c) => (
                     <li key={c.id}>
                       <LocalizedClientLink
                         className="hover:text-ui-fg-base"
@@ -149,7 +150,82 @@ export default async function Footer() {
           </Text>
           <MedusaCTA />
         </div>
+
+        {/* Insert the Trustpilot Widget */}
+        <div
+          className="trustpilot-widget"
+          data-locale="en-US"
+          data-template-id="5419b6a8b0d04a076446a9ad"
+          data-businessunit-id="641a0120bd3a43fcfbfecb58"
+          data-style-height="100%"
+          data-style-width="100%"
+          data-stars="1,2,3,4,5"
+          data-scroll-to-list="false"
+          data-allow-robots="true"
+        >
+          <a
+            href="https://www.trustpilot.com/review/nutricity.com.au"
+            target="_blank"
+            rel="noopener"
+          >
+            Trustpilot
+          </a>
+        </div>
+
+        {/* Insert the External Trustpilot Script */}
+        <Script
+          src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+          type="text/javascript"
+          async
+          strategy="afterInteractive"
+        />
+
+        {/* Existing scripts */}
+        <Script
+          src="https://cdn.reamaze.com/assets/reamaze.js"
+          type="text/javascript"
+          async
+          strategy="afterInteractive"
+        />
+
+        <Script id="support-script" type="text/javascript" strategy="afterInteractive">
+          {`
+            var _support = _support || { 'ui': {}, 'user': {} };
+            _support['account'] = 'nutricityau';
+            _support['ui']['contactMode'] = 'mixed';
+            _support['ui']['enableKb'] = 'true';
+            _support['ui']['styles'] = {
+              widgetColor: 'rgba(16, 162, 197, 1)',
+              gradient: true,
+            };
+            _support['ui']['shoutboxFacesMode'] = 'default';
+            _support['ui']['shoutboxHeaderLogo'] = true;
+            _support['ui']['widget'] = {
+              displayOn: 'all',
+              fontSize: 'default',
+              allowBotProcessing: true,
+              slug: 'nutricity-au-chat-slash-contact-form-shoutbox',
+              label: {
+                text: 'Let us know if you have any questions! 😊',
+                mode: "notification",
+                delay: 3,
+                duration: 30,
+                primary: 'I have a question',
+                secondary: 'No, thanks',
+                sound: true,
+              },
+              position: 'bottom-right',
+              mobilePosition: 'bottom-right'
+            };
+            _support['apps'] = {
+              faq: {"enabled":true},
+              recentConversations: {},
+              orders: {},
+              shopper: {}
+            };
+          `}
+        </Script>
       </div>
     </footer>
-  )
+  );
 }
