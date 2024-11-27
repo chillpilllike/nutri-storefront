@@ -51,8 +51,14 @@ export default async function Footer() {
               href="/"
               className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase"
             >
-              Medusa Store
+              About Nutricity AU
             </LocalizedClientLink>
+             <p className="mt-2 text-ui-fg-subtle text-sm">
+                At Nutricity, we believe that health and wellness should be accessible to everyone. As Australia’s trusted destination for premium supplements, we are committed to providing high-quality, science-backed products to support your journey towards a healthier, more vibrant life.
+              </p>
+              <p className="mt-2 text-ui-fg-subtle text-sm">
+                Email: support@nutricity.com.au
+              </p>
           </div>
           <div className="text-small-regular gap-10 md:gap-x-16 grid grid-cols-2 sm:grid-cols-3">
             {product_categories && product_categories.length > 0 && (
