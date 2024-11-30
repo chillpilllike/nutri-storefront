@@ -8,9 +8,9 @@ import { cache } from "react";
 import { getRegion } from "./regions";
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products";
 import { sortProducts } from "@lib/util/sort-products";
-import { User } from "react-feather"; // Assuming you have a User icon
+import { User } from "react-feather"; // Ensure this import is correct based on your setup
 
-// Data Fetching Functions
+// ---------------------- Data Fetching Functions ---------------------- //
 
 /**
  * Fetches a list of products based on provided parameters.
@@ -144,7 +144,7 @@ export const getProductsListWithSort = cache(async function ({
   };
 };
 
-// React Component
+// -------------------------- React Component --------------------------- //
 
 interface ProductListProps {
   queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams;
@@ -255,8 +255,9 @@ const ProductLoader: React.FC<ProductListProps> = ({
   );
 };
 
-// Inline Styles (You can replace these with your preferred styling method)
-const styles = {
+// ---------------------------- Styling ---------------------------- //
+
+const styles: { [key: string]: React.CSSProperties } = {
   productGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
