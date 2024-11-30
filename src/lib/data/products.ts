@@ -1,4 +1,4 @@
-// src/components/ProductLoader.tsx
+// src/lib/data/products.tsx
 
 import React, { useState, useEffect } from "react";
 import { Button, Text } from "@medusajs/ui";
@@ -72,7 +72,7 @@ export const getProductsById = cache(async function ({
 }: {
   ids: string[];
   regionId: string;
-}) {
+}): Promise<HttpTypes.StoreProduct[]> {
   return sdk.store.product
     .list(
       {
@@ -91,7 +91,7 @@ export const getProductsById = cache(async function ({
 export const getProductByHandle = cache(async function (
   handle: string,
   regionId: string
-) {
+): Promise<HttpTypes.StoreProduct | undefined> {
   return sdk.store.product
     .list(
       {
@@ -106,7 +106,6 @@ export const getProductByHandle = cache(async function (
 
 /**
  * Fetches and sorts the product list.
- * This function can be extended to include sorting logic if needed.
  */
 export const getProductsListWithSort = cache(async function ({
   page = 1,
@@ -170,14 +169,12 @@ const ProductLoader: React.FC<ProductListProps> = ({
     setLoading(true);
     setError(null);
     try {
-      const { response, nextPage: newNextPage } = await getProductsListWithSort(
-        {
-          page,
-          queryParams,
-          sortBy,
-          countryCode,
-        }
-      );
+      const { response, nextPage: newNextPage } = await getProductsListWithSort({
+        page,
+        queryParams,
+        sortBy,
+        countryCode,
+      });
       setProducts((prev) => [...prev, ...response.products]);
       setNextPage(newNextPage);
       setCurrentPage(page);
